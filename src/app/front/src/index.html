@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport"
+            content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>Pong!</title>
+      <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+   </head>
+
+   <body>
+      <div class="bg-success bg-gradient background">
+         <div id="component">
+            <div id="social"></div>
+            <div id="nav"></div>
+            <div id="chat"></div>
+         </div>
+         <div id="app"></div>
+      </div>
+   <script src="https://unpkg.com/swup@4.5.2/dist/Swup.umd.js"></script>
+   <script>
+      document.addEventListener("DOMContentLoaded", function () {
+    const swup = new Swup();
+
+    // Vérifiez si l'élément avec l'ID "start-button" est présent dans le DOM
+    const startButton = document.getElementById("start-button");
+    if (startButton) {
+        // Si l'élément est trouvé, attachez l'événement click au bouton
+        startButton.addEventListener("click", function () {
+            console.log("Le bouton 'start-button' a été cliqué !");
+            // Ajoutez ici le code que vous souhaitez exécuter lorsque le bouton est cliqué
+        });
+    } else {
+        console.error("L'élément avec l'ID 'start-button' n'a pas été trouvé dans le DOM.");
+    }
+});
+
+   </script>
+   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+   </body>
+</html>

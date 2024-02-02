@@ -1,0 +1,54 @@
+version: '3.9'
+
+networks:
+    transcendence:
+        driver: bridge
+services:
+    front:
+        build:
+            context: ./src/app/front
+            dockerfile: Dockerfile
+        ports:
+            - "8080:8080"
+        volumes:
+            - ./src/app/front:/app/front
+        depends_on:
+            - django
+        networks:
+            - transcendence
+    #nginx:
+    #    build:
+    #        context: ./src/app/nginx
+    #        dockerfile: Dockerfile
+    #    ports:
+    #        - "80:80"
+    #    volumes:
+    #        - ./src/app/nginx:/app/nginx
+    #    depends_on:
+    #        - django
+    #    networks:
+    #        - transcendence
+    django:
+        build:
+            context: ./src/app/django
+            dockerfile: Dockerfile
+        ports:
+            - "8000:8000"
+        volumes:
+            - ./src/app/django:/app/django
+        env_file:
+            - .env
+        depends_on:
+            - db
+        networks:
+            - transcendence
+    db:
+        image: postgres:15.1
+        ports:
+            - "5432:5432"
+        volumes:
+            - ./data/db:/var/lib/postgresql/data
+        env_file:
+            - .env
+        networks:
+            - transcendence
